@@ -12,7 +12,9 @@ class ComicController extends Controller
      */
     public function index()
     {
-        //
+        $comicsList = config('db.comics'); //qui mi recupero dalla cartella config l'array associativo
+        //dd($comicsList);
+        return view('comics.index',compact('comicsList'));
     }
 
     /**
