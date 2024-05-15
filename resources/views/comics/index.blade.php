@@ -5,18 +5,18 @@
         <div class="container">
             <div class="row row-cols-1 row-cols-md-6 g-4">
 
-                @foreach ($comicsList as $array)
+                @foreach ($comicsList as $comic)
                     <div class="col">
 
 
                         <div class="card border-0">
-                            <img class="card-img-top" src="{{ $array['thumb'] }}"
-                                alt="image describing the following array {{ $array['title'] }}">
+                            <img class="card-img-top" src="{{ $comic['thumb'] }}"
+                                alt="">
                             <div class="card-body">
-                               <div class="card-text"> {{ $array['title'] }}</div>
-                               <div class="card-text"> {{ $array['type'] }}</div>
-                               <div class="card-text"> {{ $array['series'] }}</div>
-                               <div class="card-text"> {{ $array['price'] }}</div>
+                               <div class="card-text"> {{ $comic->title }}</div>
+                               <div class="card-text"> {{ $comic->type }}</div>
+                               <div class="card-text"> {{ $comic->series }}</div>
+                               <div class="card-text"> {{ $comic->price }}</div>
                             </div>
                         </div>
 

@@ -12,7 +12,7 @@ class ComicController extends Controller
      */
     public function index()
     {
-        $comicsList = config('db.comics'); //qui mi recupero dalla cartella config l'array associativo
+        $comicsList = Comic::all(); //con questa query recupero tutti i campi della tabella comic all'interno del mio DB.
         //dd($comicsList);
         return view('comics.index',compact('comicsList'));
     }
