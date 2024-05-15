@@ -3,29 +3,34 @@
 @section('content')
     <main>
         <div class="container">
-            <div class="row row-cols-1 row-cols-md-6 g-4">
-
-                @foreach ($comicsList as $comic)
-                    <div class="col">
-
-
-                        <div class="card border-0">
-                            <img class="card-img-top" src="{{ $comic['thumb'] }}"
-                                alt="">
-                            <div class="card-body">
-                               <div class="card-text"> {{ $comic->title }}</div>
-                               <div class="card-text"> {{ $comic->type }}</div>
-                               <div class="card-text"> {{ $comic->series }}</div>
-                               <div class="card-text"> {{ $comic->price }}</div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                @endforeach
-
+            <div class="row">
+                <div class="col">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Thumb</th>
+                                <th>Title</th>
+                                <th>Type</th>
+                                <th>Series</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($comicsList as $comic)
+                                <tr>
+                                    <td><img src="{{ $comic->thumb }}" alt="{{ $comic->title }}" height="100" width="75">
+                                    </td>
+                                    <td>{{ $comic->title }}</td>
+                                    <td>{{ $comic->type }}</td>
+                                    <td>{{ $comic->series }}</td>
+                                    <td>{{ $comic->price }}</td>
+                                    <td><a href="{{route('comics.show',$comic)}}" class="btn btn-dark"><i class="fa-regular fa-eye"></i></a></td> 
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="text-center p-4"><button type="button" class="btn btn-primary text-white">LOAD MORE</button>
-            </div>
+        </div>
     </main>
 @endsection
