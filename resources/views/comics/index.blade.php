@@ -24,9 +24,22 @@
                                     <td>{{ $comic->type }}</td>
                                     <td>{{ $comic->series }}</td>
                                     <td>{{ $comic->price }}</td>
-                                    <td><a href="{{route('comics.show',$comic)}}" class="btn btn-dark"><i class="fa-regular fa-eye"></i></a></td> 
-                                    <td><a href="{{route('comics.edit',$comic)}}" class="btn btn-dark"><i class="fa-solid fa-pen-nib"></i></a></td> 
-
+                                    <td>
+                                        <a href="{{ route('comics.show', $comic) }}" class="btn btn-dark">
+                                            <i class="fa-regular fa-eye"></i></a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('comics.edit', $comic) }}" class="btn btn-dark">
+                                            <i class="fa-solid fa-pen-nib"></i></a>
+                                    </td>
+                                    <td>
+                                        <form action="{{ route('comics.destroy', $comic) }}" method="post">
+                                            @csrf <!--ricorda di aggiungere sempre il token univoco-->
+                                            @method('DELETE') <!--aggiungi sempre method 'delete' per indicare che questo form post è di tipo delete-->
+                                            <button type="submit" class="btn btn-danger">
+                                            <i class="fa-solid fa-trash-can"></i></button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
