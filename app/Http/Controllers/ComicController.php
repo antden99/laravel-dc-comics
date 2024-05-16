@@ -60,7 +60,7 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-        //
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -68,7 +68,13 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        //
+        //dd($request->all());  $request->all() contiene tutti i cambi che io voglio effettuare 
+
+        $data = $request->all();
+
+        $comic->update($data); //facendo questo passaggio, avrai problemi con le fillable, perche stai aggiornando tutti i campi contemporaneamente, e di conseguenza ricorda di andare nel modello Comic e aggiungere la protected
+
+        return to_route('comics.index');
     }
 
     /**
