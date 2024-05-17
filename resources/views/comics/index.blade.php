@@ -4,6 +4,7 @@
     <main>
         <div class="container">
             <div class="row">
+                <a href="{{ route('comics.create') }}" class="p-4"><button class="btn btn-primary">Add</button></a>
                 <div class="col">
                     <table class="table">
                         <thead>
